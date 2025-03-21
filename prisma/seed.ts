@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 // reference a type from the generated Prisma Client
 // import type { Client } from '@prisma/client';
 const prisma: PrismaClient = new PrismaClient();
-import { Client } from './types.ts';
+import { Client } from './types.js';
 
 // if you use the model you have to fill in all the fields also the generated ones
 const clients: Client[] = [

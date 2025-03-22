@@ -11,8 +11,9 @@
   },
   "scripts": {
     "postinstall": "prisma generate",
-    "dev": "nodemon --watch src/start.ts",
-    "start": "tsx src/start.ts",
+    "dev": "nodemon --watch build/src/start.js",
+    "dev_ts": "nodemon --watch src/start.ts",
+    "start_ts": "tsx src/start.ts",
     "tailwind:css": "postcss public/css/tailwind.css -o public/css/style.css"
   },
   "dependencies": {

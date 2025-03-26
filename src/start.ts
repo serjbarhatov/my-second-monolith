@@ -10,6 +10,7 @@ const app: Application = Express();
 const port: number = process.env.PORT ? parseInt(process.env.PORT) : 3010;
 
 // support json encoded and url-encoded bodies, mainly used for post and update
+// test
 app.use(Express.json());
 app.use(Express.urlencoded({ extended: true }));
 

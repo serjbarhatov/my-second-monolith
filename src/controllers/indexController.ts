@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 import { Client} from '../../prisma/types.js';
+import { getData } from '../utils/ajax.js';
 const prisma: PrismaClient = new PrismaClient();
 
 
@@ -13,7 +14,8 @@ async function getClients(): Promise<Client[]> {
 }
 
 export const getIndex = async (req: Request, res: Response): Promise<void> => {
-  const clients: Client[] = await getClients();
-  console.log(clients);
-  res.render('index', { clients: clients });
+  const article: Article = await getData('https://articles-zxjs.onrender.com/articles/1');
+  // const clients: Client[] = await getClients();
+  // console.log(clients);
+  res.render('index', { clients: articles });
 };

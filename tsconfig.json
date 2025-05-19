@@ -22,6 +22,8 @@
         "prisma/seed.ts", "prisma/types.ts",
     ],
     "exclude": [
+        "build",
+        "public",
         "node_modules",
         "**/*.spec.ts",
         "postcss.config.js",

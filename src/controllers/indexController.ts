@@ -1,21 +1,14 @@
 import { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
-import { Client} from '../../prisma/types.js';
+import { ArticleResponse } from '../utils/interfaces.js';
+import * as Dotenv from 'dotenv';
+Dotenv.config({ path: '.env' });
 import { getData } from '../utils/ajax.js';
-const prisma: PrismaClient = new PrismaClient();
 
-
-/**
- * Function to get all people
- * @returns A promise that resolves to a list of clients.
- */
-async function getClients(): Promise<Client[]> {
-  return await prisma.client.findMany();
-}
+const apiUrl: string = process.env.API_URL;
+console.warn('🐮', apiUrl);
 
 export const getIndex = async (req: Request, res: Response): Promise<void> => {
-  const article: Article = await getData('https://articles-zxjs.onrender.com/articles/1');
-  // const clients: Client[] = await getClients();
-  // console.log(clients);
-  res.render('index', { clients: articles });
+  const article: ArticleResponse = await getData('http://localhost:3012/articles/1');
+  console.log('🐮', article);
+  res.render('index', { article: article });
 };

@@ -41,7 +41,7 @@ If you're like me and you dislike NodeJS and NPM piling up heaps of folders on y
 
 We use ES6 module system to [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import?retiredLocale=nl) and [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) modules.
 
-## Variables.env
+## .env
 
 We save credentials to other services in a `variables.env` file. This file is included in this template. However, it is common use not to include it in a public repository. There are some default key value pairs included to demonstrate its working.
 
@@ -49,8 +49,14 @@ We save credentials to other services in a `variables.env` file. This file is in
 
 You can change the ports of your server via `variables.env`
 
-## Transpile in memory
-With our `npmr run` commands we do not transpile our ts files to the filesystem. This is on purpose, we choose to transpile in memory. Hot-module replacement is also in place. If your run `npm run dev` and you update your code, the server will automatically restart.
+## Scripts in package.json
+The initial idea was to just run the whole app in TS and not bother transpiling the TS files. Alas the `npm run ts:` prefixes. However during the process we left this idead and added the following scripts
+1. `npm run dev`: uses the library concurrently to run multiple tasks. However sometimes I do run into some issues. S, I opened up an issue to include a taskrunner/manager in the project.
+2. `npm run tailwind:watch`: if necessary adds new classes to the css.
+3. `ts:watch`: if necessary transpile the typescript into javascript
 
 ## Database connectivity
 In this project [Prisma](https://www.prisma.io/docs/orm/overview/introduction/what-is-prisma) is used for Object Relation Mapping. It comes with all kind of utilities as models, seeds and migrations.
+
+## API interfaces
+In the `utils/interfaces.ts` file you can find the interfaces from a external API that is being used

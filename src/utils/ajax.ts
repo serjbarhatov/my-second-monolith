@@ -40,3 +40,25 @@ export const getAllDataFromDifferentUrls = async (
     return [{ error }];
   }
 };
+
+/**
+ * Function to get data from a server
+ * @param {string} url The URL to fetch data from.
+ * @returns {Promise<ArticleResponse>} A promise that resolves to the API response
+ * containing the data or an error.
+ */
+export const getDataFromAuthenticatedApi = async (url: string): Promise<ArticleResponse> => {
+  try {
+    const res: Response = await fetch(url, {
+      headers: {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
+      }});
+    const items: ArticleResponse = await res.json();
+    return items;
+  } catch (error) {
+    return {
+      error,
+    };
+  }
+};

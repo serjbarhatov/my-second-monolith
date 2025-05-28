@@ -7,6 +7,6 @@ import { getData } from '../utils/ajax.js';
 const apiUrl: string = process.env.API_URL;
 
 export const getIndex = async (req: Request, res: Response): Promise<void> => {
-  const article: ArticleResponse = await getData('http://localhost:3012/articles/1');
+  const article: ArticleResponse = await getData(`${apiUrl}/articles/1`);
   res.render('index', { article: article });
 };

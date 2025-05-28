@@ -3,7 +3,7 @@
  * @param {*} url 
  * @returns 
  */
-export const getData = async (url) => {
+const getData = async (url) => {
     try {
         const res = await fetch(url);
         const items = await res.json();
@@ -20,9 +20,9 @@ export const getData = async (url) => {
  * @param {*} appUrlsData 
  * @returns 
  */
-export const getAllDataFromDifferentUrls = async (appUrlsData) => {
+const getAllDataFromDifferentUrls = async (appUrlsData) => {
     // setup the promises
-    const promises = appUrlsData.map((url) => getData(`http://localhost:3010${url}`));
+    const promises = appUrlsData.map((url) => getData(`http://localhost:3012${url}`));
 
     // fetch all appointments
     try {

@@ -1,9 +1,3 @@
-# Installing TypeScript
-
-This is a skeleton app for people who want to use TypeScript in ExpressJS. A docker-compose file is included for those who want to run it in a container.
-
-You don't have to use the docker-compose file if you're fine with installing NodeJS and NPM locally. Feel free to delete it if that's the case.
-
 ## Prerequisites
 Make sure you have [NodeJS](https://nodejs.org/en/download/) installed (preferably the LTS version). This will also install `npm`. For Windows users you might consider [Chocolaty](https://chocolatey.org) and for Mac users obviously [Brew](https://brew.sh). These are both package managers that will help you install and update all kinds of packages via the CLI. Highly recommended. 
 
